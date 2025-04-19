@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Carica — ANNA ASTI</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            height: 100%;
+            width: 100%;
+            background: black;
+        }
+        video#bg-video {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
+        .laser {
+            position: absolute;
+            width: 2px;
+            height: 100vh;
+            background: #0ff;
+            animation: shoot 1s linear infinite;
+            opacity: 0.6;
+            z-index: -1;
+        }
+        @keyframes shoot {
+            0% { transform: translateY(100vh); }
+            100% { transform: translateY(-100vh); }
+        }
+        .laser:nth-child(1) { left: 20%; animation-delay: 0s; }
+        .laser:nth-child(2) { left: 40%; animation-delay: 0.3s; }
+        .laser:nth-child(3) { left: 60%; animation-delay: 0.6s; }
+        .laser:nth-child(4) { left: 80%; animation-delay: 0.9s; }
+
+        .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            z-index: 10;
+        }
+        audio {
+            margin-top: 20px;
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <video id="bg-video" autoplay loop muted playsinline>
+        <source src="video.mov" type="video/mp4">
+    </video>
+
+    <div class="laser"></div>
+    <div class="laser"></div>
+    <div class="laser"></div>
+    <div class="laser"></div>
+
+    <div class="content">
+        <h1>Carica — ANNA ASTI</h1>
+        <audio controls>
+            <source src="audio.mp3" type="audio/mpeg">
+            Твой браузер не поддерживает воспроизведение аудио.
+        </audio>
+    </div>
+</body>
+</html>
